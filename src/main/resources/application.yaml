@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: keycloak-spring-connect
+  main:
+    allow-bean-definition-overriding: true
+
+keycloak:
+  auth-server-url: https://localhost:8443/auth
+  realm: demo-angular
+  resource: demo-angular-client
+  credentials:
+    secret: af78395d-04a7-4a2a-b426-0d2932160625
+  truststore: /Users/djenanewail/Documents/projects/keycloak-4.8.3.Final/standalone/configuration/application.keystore
+  truststore-password: password
+  ssl-required: external
+  confidential-port: 0
+  connection-pool-size: 20
+  principal-attribute: preferred_username
+  cors: true
+  cors-allowed-methods: POST,PUT,DELETE,GET
+  use-resource-role-mappings: true
+
+server:
+  port: 9090
+  servlet:
+    context-path: /api
+
+debug: true

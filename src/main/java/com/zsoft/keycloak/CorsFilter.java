@@ -16,6 +16,10 @@ import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 @Order(HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 	
+	@Override public void init(FilterConfig filterConfig) throws ServletException {
+	
+	}
+	
 	@Override public void doFilter(ServletRequest req, ServletResponse res,
 								   FilterChain chain) throws IOException, ServletException
 	{
@@ -28,6 +32,10 @@ public class CorsFilter implements Filter {
 		if (!Objects.equals(request.getMethod(), "OPTIONS")) {
 			chain.doFilter(req, res);
 		}
+	
+	}
+	
+	@Override public void destroy() {
 	
 	}
 }
